@@ -1,1 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KSS Immigration | Flyezy</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #2563eb;
+            --secondary: #fb923c;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --glass: rgba(255, 255, 255, 0.9);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* --- NAVIGATION --- */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            padding: 1.5rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span { color: var(--secondary); }
+
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 600;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #eff6ff 0%, #ffedd5 100%);
+            padding: 0 10%;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-content p {
+            font-size: 1.25rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            color: #475569;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            border: none;
+            font-weight: 700;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3); }
+
+        /* --- PAGE VIEWS --- */
+        .page-content {
+            display: none;
+            padding: 100px 10% 60px;
+            min-height: 80vh;
+        }
+
+        .page-content.active { display: block; animation: fadeIn 0.5s ease; }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: var(--transition);
+        }
+
+        .card:hover { transform: translateY(-10px); }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 10%;
+            text-align: center;
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.5rem; }
+            .nav-links { display: none; } /* Simplified for mobile demo */
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="#" class="logo" onclick="showPage('home')">KSS<span>Flyezy</span></a>
+        <ul class="nav-links">
+            <li><a onclick="showPage('home')">Home</a></li>
+            <li><a onclick="showPage('services')">Services</a></li>
+            <li><a onclick="showPage('destinations')">Destinations</a></li>
+            <li><a onclick="showPage('immigration')">Immigration</a></li>
+            <li><a onclick="showPage('about')">About Us</a></li>
+            <li><a onclick="showPage('contact')">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="page-content active">
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Your Gateway to the <br><span style="color: var(--primary)">Global Horizon.</span></h1>
+                <p>Expert immigration consulting and seamless travel planning under one roof. Let's make your next move effortless.</p>
+                <button class="btn btn-primary" onclick="showPage('services')">Explore Services</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="page-content">
+        <h2 style="font-size: 3rem; text-align: center;">Our Services</h2>
+        <div class="grid">
+            <div class="card">
+                <i class="fas fa-plane-departure fa-3px" style="color: var(--primary); font-size: 2rem;"></i>
+                <h3>Flight Booking</h3>
+                <p>Exclusive deals on international and domestic flights with 24/7 support.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-passport" style="color: var(--secondary); font-size: 2rem;"></i>
+                <h3>Visa Assistance</h3>
+                <p>End-to-end documentation support for tourist, business, and transit visas.</p>
+            </div>
+            <div class="card">
+                <i class="fas fa-hotel" style="color: var(--primary); font-size: 2rem;"></i>
+                <h3>Luxury Stays</h3>
+                <p>Handpicked accommodations that balance comfort with local culture.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="destinations" class="page-content">
+        <h2 style="text-align: center;">Popular Destinations</h2>
+        <div class="grid">
+            <div class="card" style="background: url('https://images.unsplash.com/photo-1506929113670-b426f1f3bbea?auto=format&fit=crop&w=400') center/cover; min-height: 300px; position: relative;">
+                <h3 style="position: absolute; bottom: 20px; color: white; background: rgba(0,0,0,0.5); padding: 5px 15px; border-radius: 5px;">Maldives</h3>
+            </div>
+            <div class="card" style="background: url('https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=400') center/cover; min-height: 300px; position: relative;">
+                <h3 style="position: absolute; bottom: 20px; color: white; background: rgba(0,0,0,0.5); padding: 5px 15px; border-radius: 5px;">Kyoto, Japan</h3>
+            </div>
+            <div class="card" style="background: url('https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?auto=format&fit=crop&w=400') center/cover; min-height: 300px; position: relative;">
+                <h3 style="position: absolute; bottom: 20px; color: white; background: rgba(0,0,0,0.5); padding: 5px 15px; border-radius: 5px;">Venice, Italy</h3>
+            </div>
+        </div>
+    </section>
+
+    <section id="immigration" class="page-content">
+        <h2 style="text-align: center;">Immigration & PR</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Canada Express Entry</h3>
+                <p>Move to the Great North. We handle CRS score optimization and profile filing.</p>
+            </div>
+            <div class="card">
+                <h3>Study Abroad</h3>
+                <p>Secure admission in top universities across UK, USA, and Australia.</p>
+            </div>
+            <div class="card">
+                <h3>Work Permits</h3>
+                <p>Professional guidance for getting legal work authorization globally.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="page-content">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <h2>About KSS Immigration</h2>
+            <p style="margin-top: 2rem;">Founded on the principle of transparency, Flyezy (a division of KSS Immigration) has helped over 10,000+ travelers and migrants find their place in the world. We don't just sell tickets; we build bridges between cultures.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="page-content">
+        <h2 style="text-align: center;">Get In Touch</h2>
+        <div class="card" style="max-width: 600px; margin: 3rem auto;">
+            <form onsubmit="event.preventDefault(); alert('Message Sent!');">
+                <input type="text" placeholder="Full Name" style="width: 100%; padding: 1rem; margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 8px;">
+                <input type="email" placeholder="Email Address" style="width: 100%; padding: 1rem; margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 8px;">
+                <textarea placeholder="How can we help?" style="width: 100%; padding: 1rem; margin-bottom: 1rem; border: 1px solid #ddd; border-radius: 8px; height: 150px;"></textarea>
+                <button class="btn btn-primary" style="width: 100%;">Send Inquiry</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 KSS Immigration & Flyezy. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            const pages = document.querySelectorAll('.page-content');
+            pages.forEach(page => page.classList.remove('active'));
+
+            // Show selected page
+            const activePage = document.getElementById(pageId);
+            activePage.classList.add('active');
+
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
 
